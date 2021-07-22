@@ -13,4 +13,4 @@ yarn-error.log*
 *.sln
 
 /env_config.js
-/.env.local
+# /.env.local
