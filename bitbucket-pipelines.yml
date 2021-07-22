@@ -1,0 +1,78 @@
+image: node:14
+
+pipelines:
+  default:
+    - step:
+        caches:
+          - node
+        script:
+          - echo Ok
+          #- npm install
+          #- npm test # No tests so far. Leaving this and hope to make them some day.
+  branches:
+    staging:
+      - step:
+          caches:
+            - node
+          name: Build
+          script:
+            - yarn
+            - touch .env
+            - echo "VUE_APP_API_ROOT=https://api-staging.yogo.dk"  >> .env
+            - echo "VUE_APP_IMAGE_SERVER_IMGIX=yogo-staging.imgix.net" >> .env
+            - cat .env
+            - yarn run build
+          artifacts:
+            - dist/**
+      - step:
+          name: Deploy
+          deployment: staging
+          script:
+            - pipe: atlassian/aws-s3-deploy:0.4.3
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID_STAGING
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY_STAGING
+                AWS_DEFAULT_REGION: 'eu-central-1'
+                S3_BUCKET: 'app-staging.yogo.dk/teacher'
+                LOCAL_PATH: 'dist'
+                ACL: 'public-read'
+            - pipe: atlassian/aws-cloudfront-invalidate:0.3.2
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID_STAGING
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY_STAGING
+                AWS_DEFAULT_REGION: 'eu-central-1'
+                DISTRIBUTION_ID: $CLOUDFRONT_DISTRIBUTION_ID_STAGING
+                PATHS: '/teacher/*'
+    production:
+      - step:
+          caches:
+            - node
+          name: Build
+          script:
+            - yarn
+            - touch .env
+            - echo "VUE_APP_API_ROOT=https://api.yogo.dk"  >> .env
+            - echo "VUE_APP_IMAGE_SERVER_IMGIX=yogo.imgix.net" >> .env
+            - cat .env
+            - yarn run build
+          artifacts:
+            - dist/**
+      - step:
+          name: Deploy
+          deployment: production
+          script:
+            - pipe: atlassian/aws-s3-deploy:0.4.3
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID_PRODUCTION
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY_PRODUCTION
+                AWS_DEFAULT_REGION: 'eu-central-1'
+                S3_BUCKET: 'app.yogo.dk/teacher'
+                LOCAL_PATH: 'dist'
+                ACL: 'public-read'
+            - pipe: atlassian/aws-cloudfront-invalidate:0.3.2
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID_PRODUCTION
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY_PRODUCTION
+                AWS_DEFAULT_REGION: 'eu-central-1'
+                DISTRIBUTION_ID: $CLOUDFRONT_DISTRIBUTION_ID_PRODUCTION
+                PATHS: '/teacher/*'

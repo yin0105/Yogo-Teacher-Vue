@@ -1,0 +1,12 @@
+@import '../variables';
+.vdp-datepicker__calendar {
+
+  .today {
+    color: $blueLight;
+
+    &.selected {
+      color:white;
+    }
+  }
+
+}

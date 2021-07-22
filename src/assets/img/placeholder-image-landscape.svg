@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="88px" height="18px" viewBox="0 0 88 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>placeholder-image-landscape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="placeholder-image-landscape">
+            <polygon id="Shape" points="0 0 88 0 88 18 0 18"></polygon>
+            <path d="M88,18 L88,0 C81.4814815,0 78.2222222,0 78.2222222,0 L9.77777778,0 C9.77777778,0 0,0 0,0 L0,16 C0,16 0,18 0,18 L78.2222222,18 C81.8074074,18 85.0666667,18 88,18 Z M22.8,4.75 L37.9428571,12.275 L59.1428571,1 L86.4,16 L1.6,16 L22.8,4.75 Z" id="Shape" fill="#757575" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,38 @@
+.-z-1 {
+  z-index: -1;
+}
+
+h2 {
+  @apply text-3xl ;
+  @apply leading-9;
+  @apply font-extrabold;
+  @apply text-gray-900;
+}
+
+h3 {
+  @apply text-2xl;
+  @apply leading-9;
+  @apply font-extrabold;
+  @apply text-gray-900;
+}
+
+input[type="checkbox"]:checked {
+  background: theme('colors.blue') !important;
+}
+
+.link-text {
+  @apply font-medium;
+  @apply text-indigo-600;
+  @apply transition;
+  @apply ease-in-out;
+  @apply duration-150;
+
+  &:hover {
+    @apply text-indigo-500;
+  }
+
+  &:focus {
+    @apply outline-none;
+    @apply underline;
+  }
+}
