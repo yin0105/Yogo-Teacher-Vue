@@ -142,6 +142,18 @@ export default {
     ClassEndsInX: 'Remaining time: {time}',
     ClassHasEnded: 'The class has ended',
     ClassEndedXAgo: 'Running on overtime: {time}',
+    SalaryReport: "Salary Report",
+    Salary: "Salary",
+    FromDate: "From date",
+    EndDate: "End date",
+    ID: "ID",
+    Time: "Time",
+    Class: "Class",
+    Duration: "Duration",
+    SignUps: "Signups",
+    CheckedIn: "Checked in",
+    Room: "Room",
+    Total: "Total",
   },
   login: {
     teacherLogin: 'Teacher login',
@@ -178,9 +190,17 @@ export default {
     doesNotExistInSystem: ' does not exist in the system',
     passwordNotStrong: 'The password is not strong enough',
     linkExpired: 'The link has expired',
-    linkExpiredDesc: 'The link you have followed has expired. The link works an hour.',
+    linkExpiredDesc: 'The link you have followed has expired. The link works an hour.',    
   },
   system: {
     documentTitle: 'YOGO Teacher',
+  },
+  time: {
+    day: "day",
+    days: "days",
+    hour: "hour",
+    hours: "hours",
+    minute: "minute",
+    minutes: "minutes"
   },
 };

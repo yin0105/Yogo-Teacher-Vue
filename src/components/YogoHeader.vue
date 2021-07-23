@@ -77,6 +77,18 @@
                       </a>
                       <a
                         href="#"
+                        @click.prevent.stop="salaryReportClick"
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        role="menuitem">
+                        <span class="flex">
+                          <span class="mr-4">
+                            <GearsIcon></GearsIcon>
+                          </span>
+                          {{ $t('global.SalaryReport') }}
+                        </span>
+                      </a>
+                      <a
+                        href="#"
                         @click="logout"
                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                         role="menuitem">
@@ -173,6 +185,7 @@ import GearsIcon from '../graphics/icons/GearsIcon.vue';
 import LogOutIcon from '../graphics/icons/LogOutIcon.vue';
 import MenuIcon from '../graphics/icons/MenuIcon.vue';
 import MenuCloseIcon from '../graphics/icons/MenuCloseIcon.vue';
+import SalaryIcon from '../graphics/icons/SalaryIcon.vue';
 
 export default {
   name: 'Header',
@@ -203,6 +216,10 @@ export default {
   methods: {
     profileEditClick() {
       this.$router.push({ name: 'ProfileEdit' });
+      this.profileMenuIsHidden = true;
+    },
+    salaryReportClick() {
+      this.$router.push({ name: 'ReportSalary' });
       this.profileMenuIsHidden = true;
     },
     toggleMenu() {

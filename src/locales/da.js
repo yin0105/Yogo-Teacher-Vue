@@ -142,6 +142,18 @@ export default {
     ClassEndsInX: 'Klassen slutter om {time}',
     ClassHasEnded: 'Klassen er slut',
     ClassEndedXAgo: 'Klassen kører på overtid: {time}',
+    SalaryReport: "Lønrapport",
+    Salary: "Gage",
+    FromDate: "Fra dato",
+    EndDate: "Slutdato",
+    ID: "ID",
+    Time: "Tid",
+    Class: "Klasse",
+    Duration: "Varighed",
+    SignUps: "Tilmeldinger",
+    CheckedIn: "Checket ind",
+    Room: "Lokale",
+    Total: "Total",
   },
   login: {
     teacherLogin: 'Underviser login',
@@ -178,9 +190,17 @@ export default {
     doesNotExistInSystem: ' findes ikke i systemet',
     passwordNotStrong: 'Adgangskoden er ikke stærk nok',
     linkExpired: 'Linket er udløbet',
-    linkExpiredText: 'Det link, du har fulgt, er udløbet. Linket virker en time fra du beder om at nulstille din adgangskode.',
+    linkExpiredText: 'Det link, du har fulgt, er udløbet. Linket virker en time fra du beder om at nulstille din adgangskode.',    
   },
   system: {
     documentTitle: 'YOGO Underviser',
+  },
+  time: {
+    day: "dag",
+    days: "dage",
+    hour: "time",
+    hours: "timer",
+    minute: "minut",
+    minutes: "minutter"
   },
 };

@@ -14,6 +14,7 @@ import ClassCheckinSignup from '@/components/ClassCheckinSignup.vue';
 import SendClassEmail from '@/components/SendClassEmail.vue';
 import LivestreamClassPreloader from '../components/LivestreamClassPreloader.vue';
 import MySchedule from '@/components/MySchedule.vue';
+import ReportSalary from '@/components/ReportSalary'
 
 const LivestreamClass = () => import('../components/LivestreamClass.vue');
 
@@ -88,6 +89,11 @@ const router = new Router({
         requireAuth: false,
         fullBleedPage: true,
       },
+    },
+    {
+      path: '/report/salary',
+      name: 'ReportSalary',
+      component: ReportSalary,
     },
   ],
 });
